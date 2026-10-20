@@ -10,7 +10,7 @@
   <meta property="og:image" content="media/og.png" />
   <link rel="icon" href="media/icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="media/icon.png" />
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="stylesheet" href="styles.css?v=16" />
 </head>
 <body>
   <nav class="nav">
@@ -157,15 +157,30 @@
     <p class="intro">Two ways the live mark stays with you. Drive is a trip. Shift is a block of work — especially nights. Same advisory number. Not HOS. Not a dispatcher. You decide when to stop, work, or rest.</p>
     <div class="ride-grid">
       <article class="ride-card reveal">
-        <div class="ride-stage" aria-hidden="true">
-          <div class="drive-sky"></div>
-          <div class="drive-line"></div>
-          <span class="drive-stop" style="left:18%"></span>
-          <span class="drive-stop" style="left:52%"></span>
-          <span class="drive-stop" style="left:84%"></span>
-          <div class="drive-car">
-            <span class="drive-bubble">64</span>
-            <svg viewBox="0 0 40 18" width="40" height="18"><path fill="#5eead4" d="M6 13h2.2C8.8 15 10.2 16.5 12 16.5S15.2 15 15.8 13h10.4c.6 2 2 3.5 3.8 3.5s3.2-1.5 3.8-3.5H36c1 0 2-.8 2-1.8V8.2c0-1.2-.8-2.2-1.9-2.5L28 4H16L11 7H6c-1.1 0-2 .9-2 2v2.2C4 12.2 4.9 13 6 13z"/></svg>
+        <div class="ride-stage drive-flow" aria-hidden="true">
+          <div class="flow-status">
+            <span class="flow-step s1">1 · Start drive</span>
+            <span class="flow-step s2">2 · Live mark on the road</span>
+            <span class="flow-step s3">3 · Pause place · suggestion</span>
+            <span class="flow-step s4">4 · Watch tap · fatigue up</span>
+            <span class="flow-step s5">5 · Arrive · travel log</span>
+          </div>
+          <div class="flow-callout pause-tip">Pause · you decide</div>
+          <div class="flow-callout tap-tip">Watch tap</div>
+          <div class="drive-route">
+            <div class="drive-line"></div>
+            <span class="drive-pin" style="left:8%"><b></b><i>Now</i></span>
+            <span class="drive-pin pause p1" style="left:38%"><b></b><i>Pause</i></span>
+            <span class="drive-pin pause p2" style="left:64%"><b></b><i>Pause</i></span>
+            <span class="drive-pin dest" style="left:92%"><b></b><i>Log</i></span>
+            <div class="drive-car">
+              <span class="mark-chip">
+                <span class="n a">64</span>
+                <span class="n b">58</span>
+                <span class="n c">49</span>
+              </span>
+              <svg viewBox="0 0 40 18" width="40" height="18"><path fill="#1aad9f" d="M6 13h2.2C8.8 15 10.2 16.5 12 16.5S15.2 15 15.8 13h10.4c.6 2 2 3.5 3.8 3.5s3.2-1.5 3.8-3.5H36c1 0 2-.8 2-1.8V8.2c0-1.2-.8-2.2-1.9-2.5L28 4H16L11 7H6c-1.1 0-2 .9-2 2v2.2C4 12.2 4.9 13 6 13z"/></svg>
+            </div>
           </div>
         </div>
         <p class="kicker">Drive</p>
@@ -181,15 +196,31 @@
         <p class="ride-why"><strong>Why it helps</strong> The number is in the car with you, not buried in Now. You see how the trip sits against time awake and the body clock — then you decide the next pause.</p>
       </article>
       <article class="ride-card reveal" style="--d: 0.12s">
-        <div class="ride-stage night" aria-hidden="true">
+        <div class="ride-stage night shift-flow" aria-hidden="true">
+          <div class="flow-status">
+            <span class="flow-step s1">1 · Plan the night</span>
+            <span class="flow-step s2">2 · Sleep window</span>
+            <span class="flow-step s3">3 · On shift · same mark</span>
+            <span class="flow-step s4">4 · Body-clock low</span>
+            <span class="flow-step s5">5 · Sleep after · log</span>
+          </div>
           <div class="shift-hours">
             <span>18</span><span>21</span><span>00</span><span>03</span><span>06</span>
           </div>
           <div class="shift-rail">
-            <div class="shift-window"></div>
-            <div class="shift-dot"></div>
+            <div class="sleep-band before"></div>
+            <div class="shift-block"></div>
+            <div class="dip-band"></div>
+            <div class="sleep-band after"></div>
+            <div class="shift-now">
+              <span class="mark-chip dark">
+                <span class="n a">68</span>
+                <span class="n b">54</span>
+                <span class="n c">38</span>
+              </span>
+            </div>
           </div>
-          <p class="shift-label">On shift · same mark</p>
+          <p class="shift-legend"><span class="lg sleep">Sleep</span><span class="lg work">On shift</span><span class="lg dip">Body-clock low</span></p>
         </div>
         <p class="kicker">Shift</p>
         <h3>The mark through the night.</h3>

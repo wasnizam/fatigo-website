@@ -660,107 +660,225 @@ a:hover { text-decoration: underline; }
 }
 .ride-stage {
   position: relative;
-  height: 168px;
+  height: 236px;
   border-radius: 18px;
   margin-bottom: 18px;
   overflow: hidden;
-  background: linear-gradient(180deg, #dbeafe 0%, #f8fafc 55%, #e2e8f0 100%);
+  background: linear-gradient(180deg, #e8f4ff 0%, #f7f4f1 58%, #ece7e2 100%);
 }
 .ride-stage.night {
   background: linear-gradient(180deg, #070b18 0%, #111827 55%, #0b1220 100%);
   color: #e5e7eb;
 }
+.flow-status {
+  position: relative;
+  height: 20px;
+  margin: 14px 16px 0;
+}
+.flow-step {
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: #1c1c1e;
+  opacity: 0;
+}
+.night .flow-step { color: #f5f5f7; }
+.drive-flow .flow-step.s1 { animation: cap1 16s linear infinite; }
+.drive-flow .flow-step.s2 { animation: cap2 16s linear infinite; }
+.drive-flow .flow-step.s3 { animation: cap3 16s linear infinite; }
+.drive-flow .flow-step.s4 { animation: cap4 16s linear infinite; }
+.drive-flow .flow-step.s5 { animation: cap5 16s linear infinite; }
+.shift-flow .flow-step.s1 { animation: cap1 16s linear infinite; }
+.shift-flow .flow-step.s2 { animation: cap2 16s linear infinite; }
+.shift-flow .flow-step.s3 { animation: cap3 16s linear infinite; }
+.shift-flow .flow-step.s4 { animation: cap4 16s linear infinite; }
+.shift-flow .flow-step.s5 { animation: cap5 16s linear infinite; }
+.drive-route {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 22px;
+  height: 78px;
+}
 .drive-line {
   position: absolute;
-  left: 8%;
-  right: 8%;
-  bottom: 42px;
+  left: 0;
+  right: 0;
+  top: 40px;
   height: 4px;
   border-radius: 4px;
   background:
-    linear-gradient(#1d1d1f, #1d1d1f) padding-box,
+    linear-gradient(#1c1c1e, #1c1c1e) padding-box,
     repeating-linear-gradient(90deg, #fff 0 10px, transparent 10px 18px);
   background-size: 100% 2px, 120px 2px;
   background-position: 0 1px, 0 1px;
   animation: dash-move 1.1s linear infinite;
 }
-.drive-stop {
+.drive-pin {
   position: absolute;
-  bottom: 36px;
-  width: 10px;
-  height: 10px;
-  margin-left: -5px;
+  top: 36px;
+  width: 12px;
+  margin-left: -6px;
+  text-align: center;
+}
+.drive-pin b {
+  display: block;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0 0 3px #1d1d1f;
+  box-shadow: 0 0 0 3px #1c1c1e;
 }
+.drive-pin i {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 650;
+  color: rgba(28, 28, 30, 0.55);
+  white-space: nowrap;
+}
+.drive-pin.pause b { box-shadow: 0 0 0 3px #1aad9f; }
+.drive-pin.p1 { animation: pin-hit 16s linear infinite; }
+.drive-pin.p2 { animation: pin-hit2 16s linear infinite; }
+.drive-pin.dest b { background: #1c1c1e; }
 .drive-car {
   position: absolute;
-  bottom: 48px;
-  left: 10%;
+  bottom: 40px;
+  left: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  animation: drive-move 6.2s ease-in-out infinite;
+  width: 40px;
+  margin-left: -20px;
+  animation: drive-flow-move 16s linear infinite;
 }
-.drive-bubble {
-  min-width: 34px;
-  height: 28px;
-  padding: 0 8px;
+.mark-chip {
+  position: relative;
+  width: 36px;
+  height: 26px;
   border-radius: 980px;
-  background: #1d1d1f;
-  color: #5eead4;
-  font-size: 13px;
-  font-weight: 700;
+  background: #1c1c1e;
+  overflow: hidden;
+}
+.mark-chip .n {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
-  animation: bubble-pulse 1.8s ease-in-out infinite;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5eead4;
+  opacity: 0;
+}
+.drive-flow .mark-chip .n.a { animation: num-a 16s linear infinite; color: #5eead4; }
+.drive-flow .mark-chip .n.b { animation: num-b 16s linear infinite; color: #f0b429; }
+.drive-flow .mark-chip .n.c { animation: num-c 16s linear infinite; color: #ff7a45; }
+.flow-callout {
+  position: absolute;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: #fff;
+  color: #1c1c1e;
+  font-size: 10px;
+  font-weight: 650;
+  box-shadow: 0 6px 16px rgba(28, 28, 30, 0.12);
+  opacity: 0;
+  white-space: nowrap;
+}
+.pause-tip {
+  left: 28%;
+  top: 48px;
+  animation: tip-pause 16s linear infinite;
+}
+.tap-tip {
+  left: 54%;
+  top: 48px;
+  animation: tip-tap 16s linear infinite;
 }
 .shift-hours {
   display: flex;
   justify-content: space-between;
-  padding: 18px 22px 0;
-  font-size: 12px;
+  padding: 10px 22px 0;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.45);
   letter-spacing: 0.04em;
 }
 .shift-rail {
   position: relative;
-  margin: 28px 22px 0;
-  height: 14px;
+  margin: 36px 22px 0;
+  height: 16px;
   border-radius: 980px;
   background: rgba(255, 255, 255, 0.1);
 }
-.shift-window {
+.sleep-band,
+.shift-block,
+.dip-band {
   position: absolute;
   top: -6px;
-  height: 26px;
-  width: 42%;
+  height: 28px;
   border-radius: 980px;
-  background: rgba(94, 234, 212, 0.28);
-  box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.45);
-  animation: shift-slide 7s ease-in-out infinite;
+  opacity: 0.22;
 }
-.shift-dot {
+.sleep-band {
+  background: #7dd3fc;
+  width: 18%;
+}
+.sleep-band.before { left: 0; animation: sleep-before 16s linear infinite; }
+.sleep-band.after { right: 0; left: auto; animation: sleep-after 16s linear infinite; }
+.shift-block {
+  left: 16%;
+  width: 66%;
+  background: #1aad9f;
+  animation: shift-on 16s linear infinite;
+}
+.dip-band {
+  left: 58%;
+  width: 18%;
+  background: #f0b429;
+  animation: dip-glow 16s linear infinite;
+}
+.shift-now {
   position: absolute;
-  top: -2px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #5eead4;
-  animation: shift-dot 7s ease-in-out infinite;
+  top: -22px;
+  left: 16%;
+  width: 36px;
+  margin-left: -18px;
+  animation: shift-now-move 16s linear infinite;
 }
-.shift-label {
+.mark-chip.dark { background: #f5f5f7; }
+.mark-chip.dark .n { color: #0f766e; }
+.shift-flow .mark-chip .n.a { animation: num-a 16s linear infinite; color: #0f766e; }
+.shift-flow .mark-chip .n.b { animation: num-b 16s linear infinite; color: #b45309; }
+.shift-flow .mark-chip .n.c { animation: num-c 16s linear infinite; color: #c2410c; }
+.shift-legend {
   position: absolute;
   left: 22px;
   right: 22px;
-  bottom: 16px;
+  bottom: 14px;
   margin: 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: #5eead4;
+  display: flex;
+  gap: 14px;
+  font-size: 11px;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.55);
 }
+.shift-legend .lg::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.lg.sleep::before { background: #7dd3fc; }
+.lg.work::before { background: #1aad9f; }
+.lg.dip::before { background: #f0b429; }
 
 .compare-wrap {
   overflow: auto;
@@ -944,24 +1062,95 @@ a:hover { text-decoration: underline; }
 @keyframes dash-move {
   to { background-position: 0 1px, -120px 1px; }
 }
-@keyframes drive-move {
-  0% { left: 8%; }
-  50% { left: 72%; }
+@keyframes cap1 {
+  0%, 14% { opacity: 1; }
+  18%, 100% { opacity: 0; }
+}
+@keyframes cap2 {
+  0%, 16% { opacity: 0; }
+  18%, 30% { opacity: 1; }
+  34%, 100% { opacity: 0; }
+}
+@keyframes cap3 {
+  0%, 32% { opacity: 0; }
+  34%, 48% { opacity: 1; }
+  52%, 100% { opacity: 0; }
+}
+@keyframes cap4 {
+  0%, 50% { opacity: 0; }
+  52%, 68% { opacity: 1; }
+  72%, 100% { opacity: 0; }
+}
+@keyframes cap5 {
+  0%, 70% { opacity: 0; }
+  72%, 92% { opacity: 1; }
+  96%, 100% { opacity: 0; }
+}
+@keyframes drive-flow-move {
+  0%, 10% { left: 8%; }
+  26%, 40% { left: 38%; }
+  54%, 64% { left: 64%; }
+  82%, 94% { left: 92%; }
   100% { left: 8%; }
 }
-@keyframes bubble-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
+@keyframes pin-hit {
+  0%, 24% { transform: scale(1); }
+  26%, 40% { transform: scale(1.18); }
+  44%, 100% { transform: scale(1); }
 }
-@keyframes shift-slide {
-  0% { left: 6%; }
-  50% { left: 50%; }
-  100% { left: 6%; }
+@keyframes pin-hit2 {
+  0%, 52% { transform: scale(1); }
+  54%, 64% { transform: scale(1.18); }
+  68%, 100% { transform: scale(1); }
 }
-@keyframes shift-dot {
-  0% { left: 8%; }
-  50% { left: 78%; }
-  100% { left: 8%; }
+@keyframes num-a {
+  0%, 32% { opacity: 1; }
+  36%, 100% { opacity: 0; }
+}
+@keyframes num-b {
+  0%, 34% { opacity: 0; }
+  36%, 58% { opacity: 1; }
+  62%, 100% { opacity: 0; }
+}
+@keyframes num-c {
+  0%, 60% { opacity: 0; }
+  62%, 94% { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+@keyframes tip-pause {
+  0%, 24% { opacity: 0; transform: translateY(6px); }
+  28%, 40% { opacity: 1; transform: none; }
+  46%, 100% { opacity: 0; transform: translateY(6px); }
+}
+@keyframes tip-tap {
+  0%, 50% { opacity: 0; transform: translateY(6px); }
+  54%, 68% { opacity: 1; transform: none; }
+  74%, 100% { opacity: 0; transform: translateY(6px); }
+}
+@keyframes sleep-before {
+  0%, 12% { opacity: 0.15; }
+  16%, 30% { opacity: 0.95; }
+  36%, 100% { opacity: 0.22; }
+}
+@keyframes sleep-after {
+  0%, 70% { opacity: 0.15; }
+  74%, 92% { opacity: 0.95; }
+  96%, 100% { opacity: 0.22; }
+}
+@keyframes shift-on {
+  0%, 8% { opacity: 0.12; }
+  12%, 88% { opacity: 0.55; }
+  94%, 100% { opacity: 0.12; }
+}
+@keyframes dip-glow {
+  0%, 48% { opacity: 0.12; }
+  52%, 70% { opacity: 0.95; }
+  76%, 100% { opacity: 0.18; }
+}
+@keyframes shift-now-move {
+  0%, 12% { left: 18%; }
+  88%, 94% { left: 82%; }
+  100% { left: 18%; }
 }
 @keyframes row-in {
   from { opacity: 0; transform: translateY(10px); }
@@ -984,13 +1173,24 @@ a:hover { text-decoration: underline; }
   .ring-live,
   .drive-line,
   .drive-car,
-  .drive-bubble,
-  .shift-window,
-  .shift-dot,
+  .drive-pin,
+  .flow-step,
+  .flow-callout,
+  .mark-chip .n,
+  .sleep-band,
+  .shift-block,
+  .dip-band,
+  .shift-now,
   .compare tbody tr,
   .plus-sheet {
     animation: none !important;
   }
+  .flow-step.s3 { opacity: 1; }
+  .pause-tip { opacity: 1; transform: none; }
+  .drive-car { left: 38%; }
+  .mark-chip .n.b { opacity: 1; }
+  .shift-now { left: 58%; }
+  .sleep-band, .shift-block, .dip-band { opacity: 0.55; }
   .compare tbody tr { opacity: 1; transform: none; }
   .reveal {
     opacity: 1;
