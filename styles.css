@@ -675,6 +675,7 @@ a:hover { text-decoration: underline; }
   height: 20px;
   margin: 14px 16px 0;
 }
+.drive-flow .flow-step { right: 118px; }
 .flow-step {
   position: absolute;
   left: 0;
@@ -686,11 +687,34 @@ a:hover { text-decoration: underline; }
   opacity: 0;
 }
 .night .flow-step { color: #f5f5f7; }
-.drive-flow .flow-step.s1 { animation: cap1 16s linear infinite; }
-.drive-flow .flow-step.s2 { animation: cap2 16s linear infinite; }
-.drive-flow .flow-step.s3 { animation: cap3 16s linear infinite; }
-.drive-flow .flow-step.s4 { animation: cap4 16s linear infinite; }
-.drive-flow .flow-step.s5 { animation: cap5 16s linear infinite; }
+.drive-flow .flow-step.s1 { animation: dcap1 32s linear infinite; }
+.drive-flow .flow-step.s2 { animation: dcap2 32s linear infinite; }
+.drive-flow .flow-step.s3 { animation: dcap3 32s linear infinite; }
+.drive-flow .flow-step.s4 { animation: dcap4 32s linear infinite; }
+.drive-flow .flow-step.s5 { animation: dcap5 32s linear infinite; }
+.drive-flow .flow-step.t1 { animation: dcap6 32s linear infinite; }
+.drive-flow .flow-step.t2 { animation: dcap7 32s linear infinite; }
+.drive-flow .flow-step.t3 { animation: dcap8 32s linear infinite; }
+.drive-flow .flow-step.t4 { animation: dcap9 32s linear infinite; }
+.drive-flow .flow-step.t5 { animation: dcap10 32s linear infinite; }
+.who-tag {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  gap: 6px;
+  font-style: normal;
+}
+.who-tag .who {
+  padding: 2px 8px;
+  border-radius: 980px;
+  font-size: 10px;
+  font-weight: 650;
+  background: rgba(28, 28, 30, 0.08);
+  color: rgba(28, 28, 30, 0.4);
+}
+.who-tag .who.car { animation: who-car 32s linear infinite; }
+.who-tag .who.truck { animation: who-truck 32s linear infinite; }
 .shift-flow .flow-step.s1 { animation: cap1 16s linear infinite; }
 .shift-flow .flow-step.s2 { animation: cap2 16s linear infinite; }
 .shift-flow .flow-step.s3 { animation: cap3 16s linear infinite; }
@@ -752,10 +776,24 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   width: 40px;
   margin-left: -20px;
-  animation: drive-flow-move 16s linear infinite;
+}
+.drive-car.car {
+  animation: drive-car-act 32s linear infinite;
+}
+.drive-car.truck {
+  width: 56px;
+  margin-left: -28px;
+  animation: drive-truck-act 32s linear infinite;
+}
+.veh-label {
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(28, 28, 30, 0.5);
 }
 .mark-chip {
   position: relative;
@@ -775,9 +813,12 @@ a:hover { text-decoration: underline; }
   color: #5eead4;
   opacity: 0;
 }
-.drive-flow .mark-chip .n.a { animation: num-a 16s linear infinite; color: #5eead4; }
-.drive-flow .mark-chip .n.b { animation: num-b 16s linear infinite; color: #f0b429; }
-.drive-flow .mark-chip .n.c { animation: num-c 16s linear infinite; color: #ff7a45; }
+.drive-car.car .n.a { animation: cnum-a 32s linear infinite; color: #5eead4; }
+.drive-car.car .n.b { animation: cnum-b 32s linear infinite; color: #f0b429; }
+.drive-car.car .n.c { animation: cnum-c 32s linear infinite; color: #ff7a45; }
+.drive-car.truck .n.a { animation: tnum-a 32s linear infinite; color: #f0b429; }
+.drive-car.truck .n.b { animation: tnum-b 32s linear infinite; color: #ff7a45; }
+.drive-car.truck .n.c { animation: tnum-c 32s linear infinite; color: #ff4d4d; }
 .flow-callout {
   position: absolute;
   padding: 5px 8px;
@@ -793,12 +834,12 @@ a:hover { text-decoration: underline; }
 .pause-tip {
   left: 28%;
   top: 48px;
-  animation: tip-pause 16s linear infinite;
+  animation: tip-pause 32s linear infinite;
 }
 .tap-tip {
   left: 54%;
   top: 48px;
-  animation: tip-tap 16s linear infinite;
+  animation: tip-tap 32s linear infinite;
 }
 .shift-hours {
   display: flex;
@@ -1086,12 +1127,106 @@ a:hover { text-decoration: underline; }
   72%, 92% { opacity: 1; }
   96%, 100% { opacity: 0; }
 }
-@keyframes drive-flow-move {
-  0%, 10% { left: 8%; }
-  26%, 40% { left: 38%; }
-  54%, 64% { left: 64%; }
-  82%, 94% { left: 92%; }
-  100% { left: 8%; }
+@keyframes dcap1 {
+  0%, 7% { opacity: 1; }
+  9%, 100% { opacity: 0; }
+}
+@keyframes dcap2 {
+  0%, 8% { opacity: 0; }
+  9%, 15% { opacity: 1; }
+  17%, 100% { opacity: 0; }
+}
+@keyframes dcap3 {
+  0%, 16% { opacity: 0; }
+  17%, 24% { opacity: 1; }
+  26%, 100% { opacity: 0; }
+}
+@keyframes dcap4 {
+  0%, 25% { opacity: 0; }
+  26%, 34% { opacity: 1; }
+  36%, 100% { opacity: 0; }
+}
+@keyframes dcap5 {
+  0%, 35% { opacity: 0; }
+  36%, 46% { opacity: 1; }
+  48%, 100% { opacity: 0; }
+}
+@keyframes dcap6 {
+  0%, 50% { opacity: 0; }
+  51%, 57% { opacity: 1; }
+  59%, 100% { opacity: 0; }
+}
+@keyframes dcap7 {
+  0%, 58% { opacity: 0; }
+  59%, 65% { opacity: 1; }
+  67%, 100% { opacity: 0; }
+}
+@keyframes dcap8 {
+  0%, 66% { opacity: 0; }
+  67%, 74% { opacity: 1; }
+  76%, 100% { opacity: 0; }
+}
+@keyframes dcap9 {
+  0%, 75% { opacity: 0; }
+  76%, 84% { opacity: 1; }
+  86%, 100% { opacity: 0; }
+}
+@keyframes dcap10 {
+  0%, 85% { opacity: 0; }
+  86%, 96% { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+@keyframes who-car {
+  0%, 48% { background: #1c1c1e; color: #fff; }
+  50%, 100% { background: rgba(28, 28, 30, 0.08); color: rgba(28, 28, 30, 0.4); }
+}
+@keyframes who-truck {
+  0%, 48% { background: rgba(28, 28, 30, 0.08); color: rgba(28, 28, 30, 0.4); }
+  50%, 100% { background: #0f766e; color: #fff; }
+}
+@keyframes drive-car-act {
+  0%, 5% { left: 8%; opacity: 1; }
+  13%, 20% { left: 38%; }
+  27%, 32% { left: 64%; }
+  41%, 47% { left: 92%; opacity: 1; }
+  49%, 100% { left: 8%; opacity: 0; }
+}
+@keyframes drive-truck-act {
+  0%, 49% { left: 8%; opacity: 0; }
+  50%, 55% { left: 8%; opacity: 1; }
+  63%, 70% { left: 38%; }
+  77%, 82% { left: 64%; }
+  91%, 97% { left: 92%; opacity: 1; }
+  100% { left: 8%; opacity: 0; }
+}
+@keyframes cnum-a {
+  0%, 16% { opacity: 1; }
+  18%, 100% { opacity: 0; }
+}
+@keyframes cnum-b {
+  0%, 17% { opacity: 0; }
+  18%, 32% { opacity: 1; }
+  34%, 100% { opacity: 0; }
+}
+@keyframes cnum-c {
+  0%, 33% { opacity: 0; }
+  34%, 47% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+@keyframes tnum-a {
+  0%, 50% { opacity: 0; }
+  51%, 66% { opacity: 1; }
+  68%, 100% { opacity: 0; }
+}
+@keyframes tnum-b {
+  0%, 67% { opacity: 0; }
+  68%, 82% { opacity: 1; }
+  84%, 100% { opacity: 0; }
+}
+@keyframes tnum-c {
+  0%, 83% { opacity: 0; }
+  84%, 97% { opacity: 1; }
+  99%, 100% { opacity: 0; }
 }
 @keyframes pin-hit {
   0%, 24% { transform: scale(1); }
@@ -1118,14 +1253,18 @@ a:hover { text-decoration: underline; }
   98%, 100% { opacity: 0; }
 }
 @keyframes tip-pause {
-  0%, 24% { opacity: 0; transform: translateY(6px); }
-  28%, 40% { opacity: 1; transform: none; }
-  46%, 100% { opacity: 0; transform: translateY(6px); }
+  0%, 16% { opacity: 0; transform: translateY(6px); }
+  18%, 24% { opacity: 1; transform: none; }
+  26%, 66% { opacity: 0; transform: translateY(6px); }
+  68%, 74% { opacity: 1; transform: none; }
+  76%, 100% { opacity: 0; transform: translateY(6px); }
 }
 @keyframes tip-tap {
-  0%, 50% { opacity: 0; transform: translateY(6px); }
-  54%, 68% { opacity: 1; transform: none; }
-  74%, 100% { opacity: 0; transform: translateY(6px); }
+  0%, 25% { opacity: 0; transform: translateY(6px); }
+  27%, 34% { opacity: 1; transform: none; }
+  36%, 75% { opacity: 0; transform: translateY(6px); }
+  77%, 84% { opacity: 1; transform: none; }
+  86%, 100% { opacity: 0; transform: translateY(6px); }
 }
 @keyframes sleep-before {
   0%, 12% { opacity: 0.15; }
@@ -1186,9 +1325,13 @@ a:hover { text-decoration: underline; }
     animation: none !important;
   }
   .flow-step.s3 { opacity: 1; }
+  .drive-flow .flow-step.s3 { opacity: 0; }
+  .drive-flow .flow-step.t4 { opacity: 1; }
   .pause-tip { opacity: 1; transform: none; }
-  .drive-car { left: 38%; }
+  .drive-car.car { left: 28%; opacity: 1; }
+  .drive-car.truck { left: 68%; opacity: 1; }
   .mark-chip .n.b { opacity: 1; }
+  .who-tag .who.truck { background: #0f766e; color: #fff; }
   .shift-now { left: 58%; }
   .sleep-band, .shift-block, .dip-band { opacity: 0.55; }
   .compare tbody tr { opacity: 1; transform: none; }
