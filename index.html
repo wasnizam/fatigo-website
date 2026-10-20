@@ -10,7 +10,7 @@
   <meta property="og:image" content="media/og.png" />
   <link rel="icon" href="media/icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="media/icon.png" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
   <nav class="nav">
@@ -57,7 +57,7 @@
           <text x="208" y="36" text-anchor="middle" fill="#f5f5f7" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">9:41</text>
           <g transform="translate(208,206)">
             <circle r="108" fill="none" stroke="#2a2a2c" stroke-width="14"/>
-            <circle r="108" fill="none" stroke="#F0B429" stroke-width="14" stroke-linecap="round" stroke-dasharray="434.3 244.3" transform="rotate(-90)"/>
+            <circle class="ring-live" r="108" fill="none" stroke="#F0B429" stroke-width="14" stroke-linecap="round" stroke-dasharray="434.3 244.3" transform="rotate(-90)"/>
             <text y="8" text-anchor="middle" fill="#fff" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-2">64</text>
             <text y="36" text-anchor="middle" fill="#F0B429" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="650" letter-spacing="1.2">ALERTNESS</text>
             <text y="56" text-anchor="middle" fill="#a1a1a6" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="500">Steady</text>
@@ -71,27 +71,27 @@
     </div>
   </div>
 
-  <section class="band" id="usp">
+  <section class="band reveal" id="usp">
     <p class="kicker">What sets Fatigo apart</p>
     <h2>See the number. Then you decide.</h2>
     <p class="intro">Fatigo is a live alertness gauge — not a sleep diary, not a medical device, and not a go / no-go light. The score stays on this iPhone.</p>
     <div class="usp-grid">
-      <article class="usp-card">
+      <article class="usp-card reveal" style="--d: 0.04s">
         <p class="kicker">Live mark</p>
         <h3>Not a sleep log.</h3>
         <p>Now, likely, and where fatigue is heading. One mark you can glance — current, trajectory, and the next twelve hours.</p>
       </article>
-      <article class="usp-card">
+      <article class="usp-card reveal" style="--d: 0.12s">
         <p class="kicker">Advisory</p>
         <h3>You decide.</h3>
         <p>Advisory only. Fatigo does not tell you to work, drive, or rest. It does not know when you are unsafe. The call is yours.</p>
       </article>
-      <article class="usp-card">
+      <article class="usp-card reveal" style="--d: 0.2s">
         <p class="kicker">On-device</p>
         <h3>On this iPhone.</h3>
         <p>Scoring is on-device. No account for the core loop. Health is read-only. Export or delete logs in Settings. Nothing sold for ads.</p>
       </article>
-      <article class="usp-card">
+      <article class="usp-card reveal" style="--d: 0.28s">
         <p class="kicker">Plus</p>
         <h3>Body in the number.</h3>
         <p>Free is a clock. Plus puts Watch heart — HRV and resting HR — in the same mark, every day you wear it.</p>
@@ -99,47 +99,47 @@
     </div>
   </section>
 
-  <section class="band" id="features">
+  <section class="band reveal" id="features">
     <p class="kicker">In the app</p>
     <h2>Features that earn the glance.</h2>
     <p class="intro">The daily habit is the number. Everything else supports that.</p>
     <div class="feature-list">
-      <article class="feature">
+      <article class="feature reveal">
         <div class="mark" aria-hidden="true">1</div>
         <div>
           <h3>Live Now</h3>
           <p>Current alertness, how fast it is moving, and a predicted low — from last night, time awake, and the body clock.</p>
         </div>
       </article>
-      <article class="feature">
+      <article class="feature reveal" style="--d: 0.06s">
         <div class="mark" aria-hidden="true">2</div>
         <div>
           <h3>Next 12 hours</h3>
           <p>A trajectory you can scan. Coffee and naps you enter show up here. Not a history of how you slept.</p>
         </div>
       </article>
-      <article class="feature">
+      <article class="feature reveal" style="--d: 0.12s">
         <div class="mark" aria-hidden="true">3</div>
         <div>
           <h3>Morning check-in</h3>
           <p>Two fields: when you woke, hours in bed. Skip it when Plus already has last night from the Watch.</p>
         </div>
       </article>
-      <article class="feature">
+      <article class="feature reveal" style="--d: 0.18s">
         <div class="mark" aria-hidden="true">4</div>
         <div>
           <h3>Watch heart</h3>
           <p>Plus reads HRV and resting heart rate on this iPhone. Last night is automatic when you sleep in the Watch; two fields if it was charging.</p>
         </div>
       </article>
-      <article class="feature">
+      <article class="feature reveal" style="--d: 0.24s">
         <div class="mark" aria-hidden="true">5</div>
         <div>
           <h3>Drive and Shift</h3>
           <p>Plus ride-alongs for a trip or a night block. Same advisory mark — it does not tell you to go or stop.</p>
         </div>
       </article>
-      <article class="feature">
+      <article class="feature reveal" style="--d: 0.3s">
         <div class="mark" aria-hidden="true">6</div>
         <div>
           <h3>Wrist and Lock Screen</h3>
@@ -149,7 +149,7 @@
     </div>
   </section>
 
-  <section class="band" id="look">
+  <section class="band reveal" id="look">
     <h2>The look.</h2>
     <p class="intro">The same screens you will see in the app.</p>
     <div class="gallery">
@@ -176,7 +176,7 @@
               <text x="208" y="36" text-anchor="middle" fill="#f5f5f7" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">9:41</text>
               <g transform="translate(208,206)">
                 <circle r="108" fill="none" stroke="#2a2a2c" stroke-width="14"/>
-                <circle r="108" fill="none" stroke="#F0B429" stroke-width="14" stroke-linecap="round" stroke-dasharray="434.3 244.3" transform="rotate(-90)"/>
+                <circle class="ring-live" r="108" fill="none" stroke="#F0B429" stroke-width="14" stroke-linecap="round" stroke-dasharray="434.3 244.3" transform="rotate(-90)"/>
                 <text y="8" text-anchor="middle" fill="#fff" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-2">64</text>
                 <text y="36" text-anchor="middle" fill="#F0B429" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="11" font-weight="650" letter-spacing="1.2">ALERTNESS</text>
                 <text y="56" text-anchor="middle" fill="#a1a1a6" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="13" font-weight="500">Steady</text>
@@ -193,7 +193,7 @@
     </div>
   </section>
 
-  <section class="dark" id="plus">
+  <section class="dark reveal" id="plus">
     <div class="band plus-row">
       <div class="plus-copy">
         <p class="kicker">Fatigo Plus</p>
@@ -213,19 +213,19 @@
     </div>
   </section>
 
-  <section class="band" id="legal">
+  <section class="band reveal" id="legal">
     <h2>Advisory only.</h2>
     <p class="intro">Fatigo is a wellness and informational tool. Scores are estimates. It is not a medical device. It does not know when you are unsafe. You decide.</p>
     <div class="grid3">
-      <article class="card">
+      <article class="card reveal">
         <h3>Privacy</h3>
         <p>What we read, what stays on the iPhone, and how you export or delete logs. <a href="privacy.html">Privacy Policy</a></p>
       </article>
-      <article class="card">
+      <article class="card reveal" style="--d: 0.08s">
         <h3>Terms</h3>
         <p>How the app is licensed, what Plus means at checkout, and what Fatigo is not. <a href="terms.html">Terms of Use</a></p>
       </article>
-      <article class="card">
+      <article class="card reveal" style="--d: 0.16s">
         <h3>Support</h3>
         <p>Questions about the app, Health, or Plus. <a href="support.html">Support</a></p>
       </article>
@@ -247,5 +247,6 @@
       </div>
     </div>
   </footer>
+  <script src="motion.js" defer></script>
 </body>
 </html>
