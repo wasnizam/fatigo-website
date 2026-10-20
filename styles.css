@@ -722,7 +722,7 @@ a:hover { text-decoration: underline; }
   height: 20px;
   margin: 14px 16px 0;
 }
-.drive-flow .flow-step { right: 118px; }
+.drive-flow .flow-step { right: 148px; }
 .flow-step {
   position: absolute;
   left: 0;
@@ -757,6 +757,7 @@ a:hover { text-decoration: underline; }
   border-radius: 980px;
   font-size: 10px;
   font-weight: 650;
+  white-space: nowrap;
   background: rgba(28, 28, 30, 0.08);
   color: rgba(28, 28, 30, 0.4);
 }
@@ -820,22 +821,22 @@ a:hover { text-decoration: underline; }
 .drive-pin.dest b { background: #1c1c1e; }
 .drive-car {
   position: absolute;
-  bottom: 28px;
+  bottom: 24px;
   left: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  width: 84px;
-  margin-left: -42px;
+  width: 96px;
+  margin-left: -48px;
   z-index: 3;
 }
 .drive-car.car {
   animation: drive-car-act 32s linear infinite;
 }
 .drive-car.truck {
-  width: 112px;
-  margin-left: -56px;
+  width: 148px;
+  margin-left: -74px;
   animation: drive-truck-act 32s linear infinite;
 }
 .drive-car .veh { display: block; }
