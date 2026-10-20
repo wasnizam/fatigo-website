@@ -159,6 +159,11 @@ a:hover { text-decoration: underline; }
   display: block;
   object-fit: cover;
 }
+.plus-row .iphone-screen img {
+  object-fit: contain;
+  object-position: bottom;
+  background: #000;
+}
 .iphone-btn {
   position: absolute;
   background: #2c2c2e;
@@ -192,14 +197,6 @@ a:hover { text-decoration: underline; }
   height: 72px;
   border-radius: 0 2px 2px 0;
 }
-.iphone.fluid {
-  width: min(278px, 72%);
-  max-width: 278px;
-}
-.iphone.fluid .iphone-screen {
-  aspect-ratio: auto;
-}
-
 /*
   Apple Watch Series 11 46mm
   Case: 39mm × 46mm
