@@ -590,9 +590,45 @@ a:hover { text-decoration: underline; }
   font-size: 28px;
   letter-spacing: -0.04em;
 }
-.ride-card > p:last-child {
-  margin: 0;
+.ride-card > p {
+  margin: 0 0 14px;
   color: var(--ink-soft);
+  font-size: 16px;
+}
+.ride-points {
+  margin: 0 0 4px;
+  padding: 0;
+  list-style: none;
+}
+.ride-points li {
+  margin: 0;
+  padding: 10px 0;
+  border-top: 1px solid var(--hairline);
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.ride-points strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+.ride-why {
+  margin: 14px 0 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(0, 168, 154, 0.08);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.ride-why strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
 }
 .ride-stage {
   position: relative;
