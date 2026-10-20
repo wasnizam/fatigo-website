@@ -674,8 +674,6 @@ a:hover { text-decoration: underline; }
   inset: 44px 8px 58px;
   width: auto;
   height: auto;
-  opacity: 0.5;
-  filter: blur(2.4px);
   pointer-events: none;
 }
 .fatigue-graph .alt-line,
@@ -687,8 +685,22 @@ a:hover { text-decoration: underline; }
 }
 .fatigue-graph .alt-line { stroke: #1aad9f; }
 .fatigue-graph .fat-line { stroke: #e15a3a; }
-.g-car { animation: graph-car 32s linear infinite; }
-.g-truck { animation: graph-truck 32s linear infinite; }
+.fatigue-graph .guide {
+  opacity: 0.22;
+  stroke-width: 4;
+  filter: blur(2.6px);
+}
+.fatigue-graph .draw {
+  opacity: 0.72;
+  filter: blur(1.5px);
+  stroke-dasharray: 520;
+  stroke-dashoffset: 520;
+  animation: draw-graph 16s linear infinite;
+}
+.fatigue-graph .graph-dot {
+  filter: blur(0.8px);
+  opacity: 0.9;
+}
 .graph-key {
   position: absolute;
   left: auto;
@@ -723,7 +735,7 @@ a:hover { text-decoration: underline; }
   height: 20px;
   margin: 14px 16px 0;
 }
-.drive-flow .flow-step { right: 148px; }
+.drive-flow .flow-step { right: 0; }
 .flow-step {
   position: absolute;
   left: 0;
@@ -735,35 +747,11 @@ a:hover { text-decoration: underline; }
   opacity: 0;
 }
 .night .flow-step { color: #f5f5f7; }
-.drive-flow .flow-step.s1 { animation: dcap1 32s linear infinite; }
-.drive-flow .flow-step.s2 { animation: dcap2 32s linear infinite; }
-.drive-flow .flow-step.s3 { animation: dcap3 32s linear infinite; }
-.drive-flow .flow-step.s4 { animation: dcap4 32s linear infinite; }
-.drive-flow .flow-step.s5 { animation: dcap5 32s linear infinite; }
-.drive-flow .flow-step.t1 { animation: dcap6 32s linear infinite; }
-.drive-flow .flow-step.t2 { animation: dcap7 32s linear infinite; }
-.drive-flow .flow-step.t3 { animation: dcap8 32s linear infinite; }
-.drive-flow .flow-step.t4 { animation: dcap9 32s linear infinite; }
-.drive-flow .flow-step.t5 { animation: dcap10 32s linear infinite; }
-.who-tag {
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: flex;
-  gap: 6px;
-  font-style: normal;
-}
-.who-tag .who {
-  padding: 2px 8px;
-  border-radius: 980px;
-  font-size: 10px;
-  font-weight: 650;
-  white-space: nowrap;
-  background: rgba(28, 28, 30, 0.08);
-  color: rgba(28, 28, 30, 0.4);
-}
-.who-tag .who.car { animation: who-car 32s linear infinite; }
-.who-tag .who.truck { animation: who-truck 32s linear infinite; }
+.drive-flow .flow-step.s1 { animation: cap1 16s linear infinite; }
+.drive-flow .flow-step.s2 { animation: cap2 16s linear infinite; }
+.drive-flow .flow-step.s3 { animation: cap3 16s linear infinite; }
+.drive-flow .flow-step.s4 { animation: cap4 16s linear infinite; }
+.drive-flow .flow-step.s5 { animation: cap5 16s linear infinite; }
 .shift-flow .flow-step.s1 { animation: cap1 16s linear infinite; }
 .shift-flow .flow-step.s2 { animation: cap2 16s linear infinite; }
 .shift-flow .flow-step.s3 { animation: cap3 16s linear infinite; }
@@ -833,12 +821,7 @@ a:hover { text-decoration: underline; }
   z-index: 3;
 }
 .drive-car.car {
-  animation: drive-car-act 32s linear infinite;
-}
-.drive-car.truck {
-  width: 140px;
-  margin-left: -70px;
-  animation: drive-truck-act 32s linear infinite;
+  animation: drive-car-act 16s linear infinite;
 }
 .drive-car .veh { display: block; }
 .mark-chip {
@@ -861,12 +844,9 @@ a:hover { text-decoration: underline; }
   color: #5eead4;
   opacity: 0;
 }
-.drive-car.car .n.a { animation: cnum-a 32s linear infinite; color: #5eead4; }
-.drive-car.car .n.b { animation: cnum-b 32s linear infinite; color: #f0b429; }
-.drive-car.car .n.c { animation: cnum-c 32s linear infinite; color: #ff7a45; }
-.drive-car.truck .n.a { animation: tnum-a 32s linear infinite; color: #f0b429; }
-.drive-car.truck .n.b { animation: tnum-b 32s linear infinite; color: #ff7a45; }
-.drive-car.truck .n.c { animation: tnum-c 32s linear infinite; color: #ff4d4d; }
+.drive-car.car .n.a { animation: num-a 16s linear infinite; color: #5eead4; }
+.drive-car.car .n.b { animation: num-b 16s linear infinite; color: #f0b429; }
+.drive-car.car .n.c { animation: num-c 16s linear infinite; color: #ff7a45; }
 .flow-callout {
   position: absolute;
   padding: 5px 8px;
@@ -883,13 +863,13 @@ a:hover { text-decoration: underline; }
   left: 28%;
   top: 58px;
   z-index: 4;
-  animation: tip-pause 32s linear infinite;
+  animation: tip-pause 16s linear infinite;
 }
 .tap-tip {
   left: 54%;
   top: 58px;
   z-index: 4;
-  animation: tip-tap 32s linear infinite;
+  animation: tip-tap 16s linear infinite;
 }
 .shift-hours {
   display: flex;
@@ -1235,12 +1215,17 @@ a:hover { text-decoration: underline; }
   50%, 100% { background: #0f766e; color: #fff; }
 }
 @keyframes drive-car-act {
-  0%, 5% { left: 8%; opacity: 1; }
-  13%, 20% { left: 38%; }
-  27%, 32% { left: 64%; }
-  41%, 47% { left: 92%; opacity: 1; }
-  48% { left: 92%; opacity: 0; }
-  49%, 100% { left: 8%; opacity: 0; }
+  0%, 8% { left: 8%; opacity: 1; }
+  26%, 38% { left: 38%; }
+  54%, 64% { left: 64%; }
+  84%, 94% { left: 92%; opacity: 1; }
+  96% { left: 92%; opacity: 0; }
+  100% { left: 8%; opacity: 0; }
+}
+@keyframes draw-graph {
+  0% { stroke-dashoffset: 520; }
+  88% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
 }
 @keyframes drive-truck-act {
   0%, 49% { left: 8%; opacity: 0; }
@@ -1313,18 +1298,14 @@ a:hover { text-decoration: underline; }
   98%, 100% { opacity: 0; }
 }
 @keyframes tip-pause {
-  0%, 16% { opacity: 0; transform: translateY(6px); }
-  18%, 24% { opacity: 1; transform: none; }
-  26%, 66% { opacity: 0; transform: translateY(6px); }
-  68%, 74% { opacity: 1; transform: none; }
-  76%, 100% { opacity: 0; transform: translateY(6px); }
+  0%, 24% { opacity: 0; transform: translateY(6px); }
+  28%, 40% { opacity: 1; transform: none; }
+  46%, 100% { opacity: 0; transform: translateY(6px); }
 }
 @keyframes tip-tap {
-  0%, 25% { opacity: 0; transform: translateY(6px); }
-  27%, 34% { opacity: 1; transform: none; }
-  36%, 75% { opacity: 0; transform: translateY(6px); }
-  77%, 84% { opacity: 1; transform: none; }
-  86%, 100% { opacity: 0; transform: translateY(6px); }
+  0%, 50% { opacity: 0; transform: translateY(6px); }
+  54%, 68% { opacity: 1; transform: none; }
+  74%, 100% { opacity: 0; transform: translateY(6px); }
 }
 @keyframes sleep-before {
   0%, 12% { opacity: 0.15; }
@@ -1385,18 +1366,11 @@ a:hover { text-decoration: underline; }
     animation: none !important;
   }
   .flow-step.s3 { opacity: 1; }
-  .drive-flow .flow-step.s3 { opacity: 0; }
-  .drive-flow .flow-step.t4 { opacity: 1; }
   .pause-tip { opacity: 1; transform: none; }
-  .drive-car.car { left: 28%; opacity: 1; }
-  .drive-car.truck { left: 68%; opacity: 1; }
-  .g-car, .g-truck, .alt-line, .fat-line { animation: none !important; }
-  .g-car { opacity: 0; }
-  .g-truck { opacity: 1; }
-  .alt-line, .fat-line { stroke-dashoffset: 0; }
+  .drive-car.car { left: 38%; opacity: 1; }
+  .fatigue-graph .draw, .graph-dot { animation: none !important; }
+  .fatigue-graph .draw { stroke-dashoffset: 0; }
   .mark-chip .n.b { opacity: 1; }
-  .drive-car.car .n.a { opacity: 1; }
-  .who-tag .who.truck { background: #0f766e; color: #fff; }
   .shift-now { left: 58%; }
   .sleep-band, .shift-block, .dip-band { opacity: 0.55; }
   .compare tbody tr { opacity: 1; transform: none; }

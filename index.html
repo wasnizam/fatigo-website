@@ -10,7 +10,7 @@
   <meta property="og:image" content="media/og.png" />
   <link rel="icon" href="media/icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="media/icon.png" />
-  <link rel="stylesheet" href="styles.css?v=20" />
+  <link rel="stylesheet" href="styles.css?v=21" />
 </head>
 <body>
   <nav class="nav">
@@ -159,28 +159,24 @@
       <article class="ride-card reveal">
         <div class="ride-stage drive-flow" aria-hidden="true">
           <svg class="fatigue-graph" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
-            <g class="g-car">
-              <polyline class="alt-line" points="4,24 70,28 140,36 210,48 280,62 340,74 396,84"/>
-              <polyline class="fat-line" points="4,90 70,84 140,72 210,56 280,40 340,28 396,20"/>
-            </g>
-            <g class="g-truck">
-              <polyline class="alt-line" points="4,32 60,42 130,56 200,74 270,90 340,100 396,108"/>
-              <polyline class="fat-line" points="4,82 60,68 130,50 200,34 270,20 340,12 396,8"/>
-            </g>
+            <polyline class="alt-line guide" points="4,24 70,28 140,36 210,48 280,62 340,74 396,84"/>
+            <polyline class="fat-line guide" points="4,90 70,84 140,72 210,56 280,40 340,28 396,20"/>
+            <polyline class="alt-line draw" points="4,24 70,28 140,36 210,48 280,62 340,74 396,84"/>
+            <polyline class="fat-line draw" points="4,90 70,84 140,72 210,56 280,40 340,28 396,20"/>
+            <circle class="graph-dot alt" r="4" fill="#1aad9f">
+              <animateMotion dur="16s" repeatCount="indefinite" path="M4,24 L70,28 140,36 210,48 280,62 340,74 396,84"/>
+            </circle>
+            <circle class="graph-dot fat" r="4" fill="#e15a3a">
+              <animateMotion dur="16s" repeatCount="indefinite" path="M4,90 L70,84 140,72 210,56 280,40 340,28 396,20"/>
+            </circle>
           </svg>
           <p class="graph-key"><span class="k alt">Alertness falls</span><span class="k fat">Fatigue rises</span></p>
           <div class="flow-status">
-            <span class="flow-step s1">Model Y · start · alertness 64</span>
-            <span class="flow-step s2">Model Y · fatigue rising</span>
-            <span class="flow-step s3">Model Y · pause · you decide</span>
-            <span class="flow-step s4">Model Y · Watch tap · 49</span>
-            <span class="flow-step s5">Model Y · travel log</span>
-            <span class="flow-step t1">Scania · long haul · 44</span>
-            <span class="flow-step t2">Scania · fatigue climbing</span>
-            <span class="flow-step t3">Scania · pause window</span>
-            <span class="flow-step t4">Scania · fatigue high · 22</span>
-            <span class="flow-step t5">Scania · log · you decide</span>
-            <span class="who-tag"><i class="who car">Model Y</i><i class="who truck">Scania</i></span>
+            <span class="flow-step s1">Start drive · alertness 64</span>
+            <span class="flow-step s2">Fatigue rising</span>
+            <span class="flow-step s3">Pause · you decide</span>
+            <span class="flow-step s4">Watch tap · 49</span>
+            <span class="flow-step s5">Arrive · travel log</span>
           </div>
           <div class="flow-callout pause-tip">Pause · you decide</div>
           <div class="flow-callout tap-tip">Watch tap</div>
@@ -213,51 +209,19 @@
                 <circle cx="90" cy="37" r="1.6" fill="#e5e7eb"/>
               </svg>
             </div>
-            <div class="drive-car truck">
-              <span class="mark-chip" title="Alertness">
-                <span class="n a">44</span>
-                <span class="n b">32</span>
-                <span class="n c">22</span>
-              </span>
-              <svg class="veh scania" viewBox="0 0 168 54" width="136" height="42" aria-label="Scania truck">
-                <ellipse cx="84" cy="50" rx="76" ry="3" fill="rgba(28,28,30,.16)"/>
-                <rect x="4" y="14" width="86" height="22" rx="1.2" fill="#e7e5e4"/>
-                <rect x="8" y="18" width="16" height="9" rx="1" fill="#a8a29e"/>
-                <rect x="28" y="18" width="16" height="9" rx="1" fill="#a8a29e"/>
-                <rect x="48" y="18" width="16" height="9" rx="1" fill="#a8a29e"/>
-                <rect x="68" y="18" width="16" height="9" rx="1" fill="#a8a29e"/>
-                <rect x="4" y="12" width="86" height="3" fill="#1d4ed8"/>
-                <rect x="90" y="6" width="54" height="30" rx="2" fill="#1e3a8a"/>
-                <rect x="96" y="9" width="22" height="12" rx="1.4" fill="#7dd3fc"/>
-                <rect x="138" y="8" width="6" height="26" rx="0.6" fill="#0f172a"/>
-                <path fill="#cbd5e1" d="M140 12h2v16h-2z"/>
-                <path fill="#e2e8f0" d="M141.2 15l3.2 3.2-3.2 3.2-3.2-3.2z"/>
-                <rect x="144" y="32" width="12" height="4" rx="1" fill="#111"/>
-                <rect x="152" y="24" width="4" height="3.2" rx=".4" fill="#fde68a"/>
-                <rect x="128" y="2" width="3.2" height="12" rx="1" fill="#334155"/>
-                <circle cx="22" cy="38" r="6.4" fill="#111"/>
-                <circle cx="46" cy="38" r="6.4" fill="#111"/>
-                <circle cx="104" cy="38" r="7" fill="#111"/>
-                <circle cx="126" cy="38" r="7" fill="#111"/>
-                <circle cx="22" cy="38" r="2.6" fill="#a1a1aa"/>
-                <circle cx="46" cy="38" r="2.6" fill="#a1a1aa"/>
-                <circle cx="104" cy="38" r="2.8" fill="#a1a1aa"/>
-                <circle cx="126" cy="38" r="2.8" fill="#a1a1aa"/>
-              </svg>
-            </div>
           </div>
         </div>
         <p class="kicker">Drive</p>
         <h3>The mark on the road.</h3>
-        <p>Same advisory mark in a car or a cab. Start from Now or Watch. Long hours sit heavy — pause places are estimates. Not hours-of-service. Fatigo does not tell you to pull over.</p>
+        <p>Start a trip from Now or Watch. The live number comes with you — current, trajectory, and the next twelve hours. A destination is optional. Pause places are estimates. Fatigo does not tell you to pull over.</p>
         <ul class="ride-points">
-          <li><strong>Car or truck.</strong> A short hop and a long haul use the same number. Watch and Lock Screen keep it with you.</li>
+          <li><strong>Start or plan.</strong> Leave now, or add a later trip. Watch and Lock Screen keep the same mark.</li>
           <li><strong>Genius brief.</strong> Hours, miles, pause windows about every two hours, and whether the trip overlaps the usual body-clock low.</li>
           <li><strong>Pause places.</strong> Optional map stops along the way. A suggestion — you decide.</li>
-          <li><strong>Fatigue on a long haul.</strong> Wrist and Lock Screen tap if the mark falls. Glance, then you choose. Still an estimate.</li>
+          <li><strong>On the road.</strong> Wrist and Lock Screen tap if fatigue rises. Glance, then you choose.</li>
           <li><strong>Travel log.</strong> Finished drives keep the mark you had. Export PDF or Excel for yourself — not a workplace or hours-of-service log.</li>
         </ul>
-        <p class="ride-why"><strong>Why it helps</strong> Hours in a cab raise fatigue like any long drive. The number rides with you — then you decide the next pause. Advisory only. Not HOS.</p>
+        <p class="ride-why"><strong>Why it helps</strong> The number is in the car with you. Alertness falls as fatigue rises — then you decide the next pause.</p>
       </article>
       <article class="ride-card reveal" style="--d: 0.12s">
         <div class="ride-stage night shift-flow" aria-hidden="true">
@@ -338,7 +302,7 @@
           <tr>
             <th scope="row">Drive</th>
             <td>Locked</td>
-            <td class="plus-cell">Car or cab: live mark, pause places, log, Watch and Lock Screen</td>
+            <td class="plus-cell">Start or plan a trip, pause places, log, Watch and Lock Screen</td>
           </tr>
           <tr>
             <th scope="row">Shift</th>
