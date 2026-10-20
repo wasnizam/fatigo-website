@@ -10,7 +10,7 @@
   <meta property="og:image" content="media/og.png" />
   <link rel="icon" href="media/icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="media/icon.png" />
-  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="stylesheet" href="styles.css?v=18" />
 </head>
 <body>
   <nav class="nav">
@@ -158,16 +158,27 @@
     <div class="ride-grid">
       <article class="ride-card reveal">
         <div class="ride-stage drive-flow" aria-hidden="true">
+          <svg class="fatigue-graph" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+            <g class="g-car">
+              <polyline class="alt-line" points="4,24 70,28 140,36 210,48 280,62 340,74 396,84"/>
+              <polyline class="fat-line" points="4,90 70,84 140,72 210,56 280,40 340,28 396,20"/>
+            </g>
+            <g class="g-truck">
+              <polyline class="alt-line" points="4,32 60,42 130,56 200,74 270,90 340,100 396,108"/>
+              <polyline class="fat-line" points="4,82 60,68 130,50 200,34 270,20 340,12 396,8"/>
+            </g>
+          </svg>
+          <p class="graph-key"><span class="k alt">Alertness falls</span><span class="k fat">Fatigue rises</span></p>
           <div class="flow-status">
-            <span class="flow-step s1">Car · start drive</span>
-            <span class="flow-step s2">Car · live mark 64</span>
+            <span class="flow-step s1">Car · start · alertness 64</span>
+            <span class="flow-step s2">Car · fatigue rising</span>
             <span class="flow-step s3">Car · pause · you decide</span>
-            <span class="flow-step s4">Car · Watch tap</span>
+            <span class="flow-step s4">Car · Watch tap · 49</span>
             <span class="flow-step s5">Car · travel log</span>
-            <span class="flow-step t1">Truck · long haul</span>
-            <span class="flow-step t2">Truck · live mark · hours add up</span>
+            <span class="flow-step t1">Truck · long haul · 44</span>
+            <span class="flow-step t2">Truck · fatigue climbing</span>
             <span class="flow-step t3">Truck · pause window</span>
-            <span class="flow-step t4">Truck · fatigue high · Watch tap</span>
+            <span class="flow-step t4">Truck · fatigue high · 22</span>
             <span class="flow-step t5">Truck · log · you decide</span>
             <span class="who-tag"><i class="who car">Car</i><i class="who truck">Truck</i></span>
           </div>
@@ -180,31 +191,47 @@
             <span class="drive-pin pause p2" style="left:64%"><b></b><i>Pause</i></span>
             <span class="drive-pin dest" style="left:92%"><b></b><i>Log</i></span>
             <div class="drive-car car">
-              <span class="veh-label">Car</span>
-              <span class="mark-chip">
+              <span class="mark-chip" title="Alertness">
                 <span class="n a">64</span>
                 <span class="n b">58</span>
                 <span class="n c">49</span>
               </span>
-              <svg viewBox="0 0 40 18" width="40" height="18"><path fill="#1aad9f" d="M6 13h2.2C8.8 15 10.2 16.5 12 16.5S15.2 15 15.8 13h10.4c.6 2 2 3.5 3.8 3.5s3.2-1.5 3.8-3.5H36c1 0 2-.8 2-1.8V8.2c0-1.2-.8-2.2-1.9-2.5L28 4H16L11 7H6c-1.1 0-2 .9-2 2v2.2C4 12.2 4.9 13 6 13z"/></svg>
+              <svg class="veh" viewBox="0 0 96 44" width="84" height="38">
+                <ellipse cx="48" cy="40" rx="34" ry="3" fill="rgba(28,28,30,.14)"/>
+                <path fill="#1aad9f" d="M10 30h8l7-12h22l14-8h16l9 8h6v12H10z"/>
+                <path fill="#d7f6f1" d="M48 12l12-7h14l-5 9H50z"/>
+                <rect x="14" y="22" width="10" height="4" rx="1" fill="rgba(255,255,255,.35)"/>
+                <circle cx="30" cy="32" r="7" fill="#1c1c1e"/>
+                <circle cx="74" cy="32" r="7" fill="#1c1c1e"/>
+                <circle cx="30" cy="32" r="3" fill="#d4d4d8"/>
+                <circle cx="74" cy="32" r="3" fill="#d4d4d8"/>
+                <rect x="88" y="24" width="3" height="3" rx="0.5" fill="#fde68a"/>
+              </svg>
             </div>
             <div class="drive-car truck">
-              <span class="veh-label">Truck</span>
-              <span class="mark-chip">
+              <span class="mark-chip" title="Alertness">
                 <span class="n a">44</span>
                 <span class="n b">32</span>
                 <span class="n c">22</span>
               </span>
-              <svg viewBox="0 0 64 22" width="56" height="20" fill="none">
-                <rect x="1" y="5" width="36" height="11" rx="1.2" fill="#0f766e"/>
-                <rect x="4" y="7" width="8" height="5" rx="0.5" fill="#fff" opacity=".28"/>
-                <rect x="14" y="7" width="8" height="5" rx="0.5" fill="#fff" opacity=".18"/>
-                <rect x="24" y="7" width="8" height="5" rx="0.5" fill="#fff" opacity=".18"/>
-                <path fill="#134e4a" d="M37 16h3.1c.5 1.7 1.6 2.9 2.9 2.9s2.4-1.2 2.9-2.9H52c.8 0 1.5-.7 1.5-1.5V9.1c0-.8-.6-1.5-1.4-1.7L48.2 6H41l-4 3h0v7z"/>
-                <circle cx="10" cy="17.4" r="2.1" fill="#1c1c1e"/>
-                <circle cx="22" cy="17.4" r="2.1" fill="#1c1c1e"/>
-                <circle cx="43" cy="17.4" r="2.1" fill="#1c1c1e"/>
-                <circle cx="50.4" cy="17.4" r="2.1" fill="#1c1c1e"/>
+              <svg class="veh" viewBox="0 0 128 44" width="112" height="38">
+                <ellipse cx="64" cy="40" rx="50" ry="3" fill="rgba(28,28,30,.14)"/>
+                <rect x="4" y="12" width="72" height="18" rx="2" fill="#0f766e"/>
+                <rect x="8" y="16" width="14" height="8" rx="1" fill="rgba(255,255,255,.22)"/>
+                <rect x="26" y="16" width="14" height="8" rx="1" fill="rgba(255,255,255,.14)"/>
+                <rect x="44" y="16" width="14" height="8" rx="1" fill="rgba(255,255,255,.14)"/>
+                <rect x="62" y="16" width="10" height="8" rx="1" fill="rgba(255,255,255,.1)"/>
+                <path fill="#134e4a" d="M76 30h8l4-14h18l8 6 4 8H76z"/>
+                <path fill="#cceee8" d="M90 12h16l4 8H94z"/>
+                <rect x="118" y="22" width="4" height="4" rx="0.6" fill="#fde68a"/>
+                <circle cx="22" cy="32" r="6" fill="#1c1c1e"/>
+                <circle cx="48" cy="32" r="6" fill="#1c1c1e"/>
+                <circle cx="92" cy="32" r="6" fill="#1c1c1e"/>
+                <circle cx="110" cy="32" r="6" fill="#1c1c1e"/>
+                <circle cx="22" cy="32" r="2.4" fill="#d4d4d8"/>
+                <circle cx="48" cy="32" r="2.4" fill="#d4d4d8"/>
+                <circle cx="92" cy="32" r="2.4" fill="#d4d4d8"/>
+                <circle cx="110" cy="32" r="2.4" fill="#d4d4d8"/>
               </svg>
             </div>
           </div>

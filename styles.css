@@ -666,6 +666,53 @@ a:hover { text-decoration: underline; }
   overflow: hidden;
   background: linear-gradient(180deg, #e8f4ff 0%, #f7f4f1 58%, #ece7e2 100%);
 }
+.ride-stage.drive-flow {
+  height: 268px;
+}
+.fatigue-graph {
+  position: absolute;
+  inset: 44px 8px 58px;
+  width: auto;
+  height: auto;
+  opacity: 0.85;
+  pointer-events: none;
+}
+.fatigue-graph .alt-line,
+.fatigue-graph .fat-line {
+  fill: none;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.fatigue-graph .alt-line { stroke: #1aad9f; }
+.fatigue-graph .fat-line { stroke: #e15a3a; }
+.g-car { animation: graph-car 32s linear infinite; }
+.g-truck { animation: graph-truck 32s linear infinite; }
+.graph-key {
+  position: absolute;
+  left: auto;
+  right: 16px;
+  top: 38px;
+  bottom: auto;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 650;
+  color: rgba(28, 28, 30, 0.55);
+  z-index: 1;
+}
+.graph-key .k::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+.graph-key .k.alt::before { background: #1aad9f; }
+.graph-key .k.fat::before { background: #e15a3a; }
 .ride-stage.night {
   background: linear-gradient(180deg, #070b18 0%, #111827 55%, #0b1220 100%);
   color: #e5e7eb;
@@ -722,16 +769,18 @@ a:hover { text-decoration: underline; }
 .shift-flow .flow-step.s5 { animation: cap5 16s linear infinite; }
 .drive-route {
   position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 22px;
-  height: 78px;
+  left: 12px;
+  right: 12px;
+  bottom: 14px;
+  height: 108px;
+  overflow: visible;
+  z-index: 2;
 }
 .drive-line {
   position: absolute;
   left: 0;
   right: 0;
-  top: 40px;
+  top: 62px;
   height: 4px;
   border-radius: 4px;
   background:
@@ -743,7 +792,7 @@ a:hover { text-decoration: underline; }
 }
 .drive-pin {
   position: absolute;
-  top: 36px;
+  top: 58px;
   width: 12px;
   margin-left: -6px;
   text-align: center;
@@ -771,37 +820,34 @@ a:hover { text-decoration: underline; }
 .drive-pin.dest b { background: #1c1c1e; }
 .drive-car {
   position: absolute;
-  bottom: 40px;
+  bottom: 28px;
   left: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  width: 40px;
-  margin-left: -20px;
+  gap: 2px;
+  width: 84px;
+  margin-left: -42px;
+  z-index: 3;
 }
 .drive-car.car {
   animation: drive-car-act 32s linear infinite;
 }
 .drive-car.truck {
-  width: 56px;
-  margin-left: -28px;
+  width: 112px;
+  margin-left: -56px;
   animation: drive-truck-act 32s linear infinite;
 }
-.veh-label {
-  font-size: 9px;
-  font-weight: 650;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(28, 28, 30, 0.5);
-}
+.drive-car .veh { display: block; }
 .mark-chip {
   position: relative;
-  width: 36px;
-  height: 26px;
+  width: 40px;
+  height: 28px;
   border-radius: 980px;
   background: #1c1c1e;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(28, 28, 30, 0.18);
+  z-index: 4;
 }
 .mark-chip .n {
   position: absolute;
@@ -833,12 +879,14 @@ a:hover { text-decoration: underline; }
 }
 .pause-tip {
   left: 28%;
-  top: 48px;
+  top: 58px;
+  z-index: 4;
   animation: tip-pause 32s linear infinite;
 }
 .tap-tip {
   left: 54%;
-  top: 48px;
+  top: 58px;
+  z-index: 4;
   animation: tip-tap 32s linear infinite;
 }
 .shift-hours {
@@ -1189,6 +1237,7 @@ a:hover { text-decoration: underline; }
   13%, 20% { left: 38%; }
   27%, 32% { left: 64%; }
   41%, 47% { left: 92%; opacity: 1; }
+  48% { left: 92%; opacity: 0; }
   49%, 100% { left: 8%; opacity: 0; }
 }
 @keyframes drive-truck-act {
@@ -1197,7 +1246,16 @@ a:hover { text-decoration: underline; }
   63%, 70% { left: 38%; }
   77%, 82% { left: 64%; }
   91%, 97% { left: 92%; opacity: 1; }
+  98% { left: 92%; opacity: 0; }
   100% { left: 8%; opacity: 0; }
+}
+@keyframes graph-car {
+  0%, 48% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes graph-truck {
+  0%, 49% { opacity: 0; }
+  50%, 100% { opacity: 1; }
 }
 @keyframes cnum-a {
   0%, 16% { opacity: 1; }
@@ -1330,7 +1388,12 @@ a:hover { text-decoration: underline; }
   .pause-tip { opacity: 1; transform: none; }
   .drive-car.car { left: 28%; opacity: 1; }
   .drive-car.truck { left: 68%; opacity: 1; }
+  .g-car, .g-truck, .alt-line, .fat-line { animation: none !important; }
+  .g-car { opacity: 0; }
+  .g-truck { opacity: 1; }
+  .alt-line, .fat-line { stroke-dashoffset: 0; }
   .mark-chip .n.b { opacity: 1; }
+  .drive-car.car .n.a { opacity: 1; }
   .who-tag .who.truck { background: #0f766e; color: #fff; }
   .shift-now { left: 58%; }
   .sleep-band, .shift-block, .dip-band { opacity: 0.55; }
