@@ -674,7 +674,8 @@ a:hover { text-decoration: underline; }
   inset: 44px 8px 58px;
   width: auto;
   height: auto;
-  opacity: 0.85;
+  opacity: 0.5;
+  filter: blur(2.4px);
   pointer-events: none;
 }
 .fatigue-graph .alt-line,
@@ -835,8 +836,8 @@ a:hover { text-decoration: underline; }
   animation: drive-car-act 32s linear infinite;
 }
 .drive-car.truck {
-  width: 148px;
-  margin-left: -74px;
+  width: 140px;
+  margin-left: -70px;
   animation: drive-truck-act 32s linear infinite;
 }
 .drive-car .veh { display: block; }
