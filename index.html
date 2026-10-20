@@ -10,7 +10,7 @@
   <meta property="og:image" content="media/og.png" />
   <link rel="icon" href="media/icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="media/icon.png" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
   <nav class="nav">
@@ -22,6 +22,8 @@
       <div class="nav-links">
         <a class="hide-sm" href="#usp">Why Fatigo</a>
         <a class="hide-sm" href="#features">Features</a>
+        <a class="hide-sm" href="#ride">Drive</a>
+        <a class="hide-sm" href="#compare">Clock vs Plus</a>
         <a class="hide-sm" href="#plus">Plus</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
@@ -136,7 +138,7 @@
         <div class="mark" aria-hidden="true">5</div>
         <div>
           <h3>Drive and Shift</h3>
-          <p>Plus ride-alongs for a trip or a night block. Same advisory mark — it does not tell you to go or stop.</p>
+          <p>Plus ride-alongs for a trip or a night block. <a href="#ride">See Drive and Shift</a> — same advisory mark, never a go / no-go.</p>
         </div>
       </article>
       <article class="feature reveal" style="--d: 0.3s">
@@ -146,6 +148,104 @@
           <p>The mark on Apple Watch and the Lock Screen. Glance, then you decide.</p>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section class="band reveal" id="ride">
+    <p class="kicker">Plus ride-alongs</p>
+    <h2>Drive and Shift.</h2>
+    <p class="intro">Two ways the live mark rides with you. Not HOS. Not a dispatcher. Advisory only — you decide when to stop, work, or rest.</p>
+    <div class="ride-grid">
+      <article class="ride-card reveal">
+        <div class="ride-stage" aria-hidden="true">
+          <div class="drive-sky"></div>
+          <div class="drive-line"></div>
+          <span class="drive-stop" style="left:18%"></span>
+          <span class="drive-stop" style="left:52%"></span>
+          <span class="drive-stop" style="left:84%"></span>
+          <div class="drive-car">
+            <span class="drive-bubble">64</span>
+            <svg viewBox="0 0 40 18" width="40" height="18"><path fill="#5eead4" d="M6 13h2.2C8.8 15 10.2 16.5 12 16.5S15.2 15 15.8 13h10.4c.6 2 2 3.5 3.8 3.5s3.2-1.5 3.8-3.5H36c1 0 2-.8 2-1.8V8.2c0-1.2-.8-2.2-1.9-2.5L28 4H16L11 7H6c-1.1 0-2 .9-2 2v2.2C4 12.2 4.9 13 6 13z"/></svg>
+          </div>
+        </div>
+        <p class="kicker">Drive</p>
+        <h3>The mark on the road.</h3>
+        <p>Start a trip. The live number comes along. Pause places are estimates — Fatigo does not tell you to pull over. You decide.</p>
+      </article>
+      <article class="ride-card reveal" style="--d: 0.12s">
+        <div class="ride-stage night" aria-hidden="true">
+          <div class="shift-hours">
+            <span>18</span><span>21</span><span>00</span><span>03</span><span>06</span>
+          </div>
+          <div class="shift-rail">
+            <div class="shift-window"></div>
+            <div class="shift-dot"></div>
+          </div>
+          <p class="shift-label">On shift · same mark</p>
+        </div>
+        <p class="kicker">Shift</p>
+        <h3>The mark through the night.</h3>
+        <p>A night block with Now and the next twelve hours. Not hours-of-service. Not a medical device. You decide when to rest.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="band reveal" id="compare">
+    <p class="kicker">Clock vs Plus</p>
+    <h2>Free is a clock.<br />Plus is your body.</h2>
+    <p class="intro">The free habit is real. Plus puts Watch heart in the same number — and unlocks Drive and Shift.</p>
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col">In this number</th>
+            <th scope="col">Clock</th>
+            <th scope="col">Plus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">What it is</th>
+            <td>Typical wake and time of day</td>
+            <td class="plus-cell">Watch heart — HRV and resting HR</td>
+          </tr>
+          <tr>
+            <th scope="row">Last night</th>
+            <td>You enter wake and hours in bed</td>
+            <td class="plus-cell">From the Watch when you sleep in it; two fields if it was charging</td>
+          </tr>
+          <tr>
+            <th scope="row">Sharp</th>
+            <td>Off</td>
+            <td class="plus-cell">On — from your body, not the clock</td>
+          </tr>
+          <tr>
+            <th scope="row">History</th>
+            <td>7-day chart</td>
+            <td class="plus-cell">30 and 90-day history</td>
+          </tr>
+          <tr>
+            <th scope="row">Drive</th>
+            <td>Locked</td>
+            <td class="plus-cell">Trip ride-along with the live mark</td>
+          </tr>
+          <tr>
+            <th scope="row">Shift</th>
+            <td>Locked</td>
+            <td class="plus-cell">Night block with the same number</td>
+          </tr>
+          <tr>
+            <th scope="row">Wrist and Lock Screen</th>
+            <td>—</td>
+            <td class="plus-cell">Watch complication and Lock Screen</td>
+          </tr>
+          <tr>
+            <th scope="row">Price</th>
+            <td>Free forever</td>
+            <td class="plus-cell">7 days free, then yearly. Cancel anytime.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 

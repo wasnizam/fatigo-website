@@ -430,6 +430,193 @@ a:hover { text-decoration: underline; }
   color: #5eead4;
 }
 
+.ride-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.ride-card {
+  background: var(--bg-elevated);
+  border-radius: 24px;
+  padding: 18px 18px 28px;
+  overflow: hidden;
+}
+.ride-card h3 {
+  margin: 8px 0 8px;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+.ride-card > p:last-child {
+  margin: 0;
+  color: var(--ink-soft);
+}
+.ride-stage {
+  position: relative;
+  height: 168px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #dbeafe 0%, #f8fafc 55%, #e2e8f0 100%);
+}
+.ride-stage.night {
+  background: linear-gradient(180deg, #070b18 0%, #111827 55%, #0b1220 100%);
+  color: #e5e7eb;
+}
+.drive-line {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 42px;
+  height: 4px;
+  border-radius: 4px;
+  background:
+    linear-gradient(#1d1d1f, #1d1d1f) padding-box,
+    repeating-linear-gradient(90deg, #fff 0 10px, transparent 10px 18px);
+  background-size: 100% 2px, 120px 2px;
+  background-position: 0 1px, 0 1px;
+  animation: dash-move 1.1s linear infinite;
+}
+.drive-stop {
+  position: absolute;
+  bottom: 36px;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 3px #1d1d1f;
+}
+.drive-car {
+  position: absolute;
+  bottom: 48px;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: drive-move 6.2s ease-in-out infinite;
+}
+.drive-bubble {
+  min-width: 34px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 980px;
+  background: #1d1d1f;
+  color: #5eead4;
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  animation: bubble-pulse 1.8s ease-in-out infinite;
+}
+.shift-hours {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 22px 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.04em;
+}
+.shift-rail {
+  position: relative;
+  margin: 28px 22px 0;
+  height: 14px;
+  border-radius: 980px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.shift-window {
+  position: absolute;
+  top: -6px;
+  height: 26px;
+  width: 42%;
+  border-radius: 980px;
+  background: rgba(94, 234, 212, 0.28);
+  box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.45);
+  animation: shift-slide 7s ease-in-out infinite;
+}
+.shift-dot {
+  position: absolute;
+  top: -2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #5eead4;
+  animation: shift-dot 7s ease-in-out infinite;
+}
+.shift-label {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 16px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5eead4;
+}
+
+.compare-wrap {
+  overflow: auto;
+  border-radius: 24px;
+  background: var(--bg-elevated);
+  box-shadow: 0 0 0 1px var(--hairline);
+}
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+.compare th,
+.compare td {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 15px;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+.compare thead th {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  background: #fafafa;
+}
+.compare thead th:last-child {
+  color: var(--accent-deep);
+  background: rgba(0, 168, 154, 0.08);
+}
+.compare tbody th {
+  font-weight: 650;
+  width: 28%;
+  color: var(--ink);
+}
+.compare tbody td {
+  color: var(--ink-soft);
+  width: 36%;
+}
+.compare .plus-cell {
+  color: var(--ink);
+  font-weight: 550;
+  background: rgba(0, 168, 154, 0.06);
+}
+.compare tbody tr {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.compare-wrap.in tbody tr {
+  animation: row-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.compare-wrap.in tbody tr:nth-child(1) { animation-delay: 0.05s; }
+.compare-wrap.in tbody tr:nth-child(2) { animation-delay: 0.1s; }
+.compare-wrap.in tbody tr:nth-child(3) { animation-delay: 0.15s; }
+.compare-wrap.in tbody tr:nth-child(4) { animation-delay: 0.2s; }
+.compare-wrap.in tbody tr:nth-child(5) { animation-delay: 0.25s; }
+.compare-wrap.in tbody tr:nth-child(6) { animation-delay: 0.3s; }
+.compare-wrap.in tbody tr:nth-child(7) { animation-delay: 0.35s; }
+.compare-wrap.in tbody tr:nth-child(8) { animation-delay: 0.4s; }
+.compare tbody tr:hover .plus-cell {
+  background: rgba(0, 168, 154, 0.12);
+}
+
 .legal-page {
   max-width: 720px;
   margin: 0 auto;
@@ -473,7 +660,7 @@ a:hover { text-decoration: underline; }
 .disclaimer { max-width: 560px; }
 
 @media (max-width: 860px) {
-  .grid3, .gallery, .plus-row, .usp-grid, .feature-list { grid-template-columns: 1fr; }
+  .grid3, .gallery, .plus-row, .usp-grid, .feature-list, .ride-grid { grid-template-columns: 1fr; }
   .feature:nth-child(odd),
   .feature:nth-child(even) { padding-left: 0; padding-right: 0; }
   .phones {
@@ -546,6 +733,32 @@ a:hover { text-decoration: underline; }
   0%, 100% { stroke-dasharray: 434.3 244.3; opacity: 1; }
   50% { stroke-dasharray: 390 288.6; opacity: 0.85; }
 }
+@keyframes dash-move {
+  to { background-position: 0 1px, -120px 1px; }
+}
+@keyframes drive-move {
+  0% { left: 8%; }
+  50% { left: 72%; }
+  100% { left: 8%; }
+}
+@keyframes bubble-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+@keyframes shift-slide {
+  0% { left: 6%; }
+  50% { left: 50%; }
+  100% { left: 6%; }
+}
+@keyframes shift-dot {
+  0% { left: 8%; }
+  50% { left: 78%; }
+  100% { left: 8%; }
+}
+@keyframes row-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -556,9 +769,16 @@ a:hover { text-decoration: underline; }
   .phones,
   .phones .iphone,
   .phones .watch,
-  .ring-live {
+  .ring-live,
+  .drive-line,
+  .drive-car,
+  .drive-bubble,
+  .shift-window,
+  .shift-dot,
+  .compare tbody tr {
     animation: none !important;
   }
+  .compare tbody tr { opacity: 1; transform: none; }
   .reveal {
     opacity: 1;
     transform: none;
